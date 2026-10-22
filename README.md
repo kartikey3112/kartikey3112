@@ -12,8 +12,6 @@
   <a href="https://github.com/kartikey3112"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
 </p>
 
-<img src="https://komarev.com/ghpvc/?username=kartikey3112&label=Profile%20views&color=36BCF7&style=flat" alt="Profile views" />
-
 **[🌟 About](#-about-me) · [🧠 Skills](#-technical-skills) · [🏗️ Projects](#️-projects) · [💼 Experience](#-internships--experience) · [🎓 Education](#-education--certifications) · [📬 Contact](#-contact)**
 
 </div>
