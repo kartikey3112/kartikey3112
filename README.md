@@ -12,7 +12,7 @@
   <a href="https://github.com/kartikey3112"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
 </p>
 
-**[🌟 About](#-about-me) · [🧠 Skills](#-technical-skills) · [🏗️ Projects](#️-projects) · [💼 Experience](#-internships--experience) · [🎓 Education](#-education--certifications) · [📬 Contact](#-contact)**
+**[🌟 About](#-about-me) · [🧠 Skills](#-technical-skills) · [🏗️ Projects](#-projects) · [💼 Experience](#-internships--experience) · [🎓 Education](#-education--certifications) · [📬 Contact](#-contact)**
 
 </div>
 
@@ -41,6 +41,7 @@ I'm now taking that automation foundation into **data engineering and LLM-powere
 | Area | Tools |
 |---|---|
 | 🧪 **Automation & Testing** | ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white) ![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=flat-square&logo=selenium&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white) ![JMeter](https://img.shields.io/badge/JMeter-D22128?style=flat-square&logo=apachejmeter&logoColor=white) ![Allure](https://img.shields.io/badge/Allure-FF6F61?style=flat-square) REST API, Regression & E2E |
+| 🗄️ **Data Engineering** | ![DuckDB](https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black) ![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square) Star schemas, incremental ingestion, data-quality checks |
 | 💻 **Languages** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white) ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) |
 | ⚙️ **CI/CD & Tooling** | ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) |
 | 🌐 **Backend & Web** | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) |
@@ -51,6 +52,33 @@ I'm now taking that automation foundation into **data engineering and LLM-powere
 ---
 
 ## 🏗️ Projects
+
+<details open>
+<summary><b>📉 Noisefloor: flaky-test and slowdown analytics over CI history</b> · Python · DuckDB · dbt · Jenkins · Docker · GitHub Actions</summary>
+<br>
+
+<p>
+  <a href="https://github.com/kartikey3112/noise-floor/actions/workflows/ci.yml"><img src="https://github.com/kartikey3112/noise-floor/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <img src="https://img.shields.io/badge/answer_key-11%2F11_detected-0ca30c" alt="11/11 detected" />
+  <img src="https://img.shields.io/badge/test_executions-13%2C113-2a78d6" alt="13,113 test executions" />
+  <img src="https://img.shields.io/badge/dbt_checks-75-2a78d6" alt="75 dbt checks" />
+  <img src="https://img.shields.io/badge/cost-%240-e4572e" alt="$0" />
+</p>
+
+A data pipeline that ingests Jenkins build history into a **DuckDB star schema** with **dbt**, to find flaky tests and tests that got slower. A local Jenkins in Docker builds CrashCart 47 times across 5 commits. Planted demo tests with a published answer key prove the detection works.
+
+- 🔁 **Incremental, idempotent ingestion** from the Jenkins API: a raw landing layer, a watermark that never skips a still-running build, and re-runs that never duplicate rows
+- ⭐ **Star schema** at test-execution grain (fact + test, build, commit and date dimensions) with deterministic hash keys
+- 📊 Three metrics: **same-commit divergence** (flaky), a **rolling 30-day flip rate**, and **runtime regressions** against each test's own median, with one-off spikes kept apart from sustained slowdowns
+- 🎯 **11/11 planted tests detected as designed**, each slowdown pinned to the exact commit that caused it, and 0 of 268 real tests falsely flagged
+- ✅ dbt unit tests on hand-made data for every metric, plus data-quality checks for uniqueness, nulls, referential integrity and freshness, all running in CI
+- 🧾 A one-command pipeline (`noisefloor run`) that also rewrites the README's results, so every published number is reproducible
+
+<a href="https://kartikey3112.github.io/noise-floor/"><img src="https://github.com/kartikey3112/noise-floor/raw/main/docs/images/report-overview.png" alt="Noisefloor report" width="100%" /></a>
+
+📊 [**Live report**](https://kartikey3112.github.io/noise-floor/) · 🧭 [**Design decisions**](https://github.com/kartikey3112/noise-floor/blob/main/docs/decisions.md) · 🔗 [**Repo**](https://github.com/kartikey3112/noise-floor)
+
+</details>
 
 <details open>
 <summary><b>🛍️ CrashCart: a store built to be broken, and a QA pipeline that proves it</b> · FastAPI · React · Playwright · Pytest · JMeter · GitHub Actions</summary>
@@ -93,14 +121,6 @@ Playwright pipeline for bulk product onboarding to an e-commerce admin portal.
 - 🐳 Dockerized Playwright + Chromium, with CI/CD via GitHub Actions
 
 🔗 [**View repo →**](https://github.com/deathberry3112/nop-catalogue)
-
-</details>
-
-<details>
-<summary><b>📉 Noisefloor: CI Test Reliability Analytics</b> · <i>in progress</i></summary>
-<br>
-
-A data pipeline that ingests Jenkins build history into a **star schema** to surface flaky tests and runtime regressions. A test counts as flaky when it diverges on the same commit, tracked with a rolling 30-day flip rate.
 
 </details>
 
@@ -158,9 +178,9 @@ A full-stack web app for logging and reporting vegetable market transactions, wi
 
 ## 🏆 Achievements
 
-| ⚡ Regression time | 📈 Test coverage | 🐞 Injected bugs | 🤖 Per-product handling | 🎯 Career |
-|:---:|:---:|:---:|:---:|:---:|
-| 5 hrs → **35 min** | 15% → **72%** | **11/11** caught | 6 min → **30 sec** | Intern → **Full-time** |
+| ⚡ Regression time | 📈 Test coverage | 🐞 Injected bugs | 🔍 Flaky detection | 🤖 Per-product handling | 🎯 Career |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 5 hrs → **35 min** | 15% → **72%** | **11/11** caught | **11/11** planted tests found | 6 min → **30 sec** | Intern → **Full-time** |
 
 ---
 
