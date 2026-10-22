@@ -110,7 +110,7 @@ A data pipeline that ingests Jenkins build history into a **star schema** to sur
 <summary><b>🥕 Freggies: Vegetable Market App</b> · Python · JavaScript</summary>
 <br>
 
-A full-stack web and mobile app for logging and reporting vegetable market transactions, with ML models served through a REST API.
+A full-stack web app for logging and reporting vegetable market transactions, with ML models served through a REST API.
 
 🔗 [VeggieModel](https://github.com/kartikey3112/VeggieModel) · [Backend](https://github.com/kartikey3112/Backend)
 
@@ -144,7 +144,7 @@ A full-stack web and mobile app for logging and reporting vegetable market trans
 <summary><b>Graphic Era University</b>: Project Intern · <i>Jul 2023 – Aug 2023</i></summary>
 <br>
 
-- Delivered a full-stack web & mobile app for vegetable market transaction reporting in 8 weeks
+- Delivered a full-stack web app for vegetable market transaction reporting in 8 weeks
 
 </details>
 
@@ -163,15 +163,6 @@ A full-stack web and mobile app for logging and reporting vegetable market trans
 | ⚡ Regression time | 📈 Test coverage | 🐞 Injected bugs | 🤖 Per-product handling | 🎯 Career |
 |:---:|:---:|:---:|:---:|:---:|
 | 5 hrs → **35 min** | 15% → **72%** | **11/11** caught | 6 min → **30 sec** | Intern → **Full-time** |
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=kartikey3112&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub stats" />
-  <img height="165" src="https://streak-stats.demolab.com?user=kartikey3112&theme=tokyonight&hide_border=true" alt="GitHub streak" />
-</div>
 
 ---
 
