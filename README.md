@@ -54,6 +54,33 @@ I'm now taking that automation foundation into **data engineering and LLM-powere
 ## 🏗️ Projects
 
 <details open>
+<summary><b>🧠 TestMu Lite: LLM test generation and a flaky-test classifier</b> · Python · Playwright · Pytest · FastAPI · Groq LLM · GitHub Actions</summary>
+<br>
+
+<p>
+  <a href="https://github.com/kartikey3112/testmu-sdet1-kartikey/actions/workflows/ci.yml"><img src="https://github.com/kartikey3112/testmu-sdet1-kartikey/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <img src="https://img.shields.io/badge/classifier-53%2F55_correct-0ca30c" alt="53/55 correct" />
+  <img src="https://img.shields.io/badge/generated_cases-55-2a78d6" alt="55 generated cases" />
+  <img src="https://img.shields.io/badge/automated_tests-89-2a78d6" alt="89 tests" />
+  <img src="https://img.shields.io/badge/cost-%240-e4572e" alt="$0" />
+</p>
+
+Built for the TestMu AI SDET-1 assessment: using an LLM to cut the time spent **writing** and **fixing** regression tests. It's tested against **TestMu Lite**, a small test-management app with fault injection, so the LLM's output can be checked against known causes.
+
+- ✍️ **Prompt-engineered test generation** for Login, Dashboard and REST API: versioned prompts (v1→v4), each revision tied to a validator finding, with every prompt published exactly as run
+- 🔎 A validator for schema, coverage, duplicates, vague expectations and truncation. Reading the cases still caught 2 of 55 with wrong expectations, which were left out rather than "fixed" to pass
+- 🎭 **34 generated cases automated** with Playwright and httpx, traceable case → test → status; every injected bug fails exactly the tests that target it
+- 🤖 A **flaky-test classifier** that sorts each failure into real bug, environment issue or flaky test from execution logs and rerun evidence; redacted and chunked input, validated output, one retry, never a guess
+- 📊 **53/55 correct** on faults with known causes (16/18 without the easy outage cases), with both misses explained
+- 🧾 Results appear inside the pytest-html report; CI runs on GitHub Actions for $0 on Groq's free tier; all AI use is logged
+
+<a href="https://github.com/kartikey3112/testmu-sdet1-kartikey/tree/main/samples/eval-20261022T200611Z-mixed"><img src="https://github.com/kartikey3112/testmu-sdet1-kartikey/raw/main/samples/eval-20261022T200611Z-mixed/report-llm-summary.png" alt="LLM classification inside the test report" width="100%" /></a>
+
+📊 [**Classifier evaluation**](https://github.com/kartikey3112/testmu-sdet1-kartikey/tree/main/samples/eval) · 📝 [**Prompts**](https://github.com/kartikey3112/testmu-sdet1-kartikey/blob/main/prompts.md) · 🧭 [**Design decisions**](https://github.com/kartikey3112/testmu-sdet1-kartikey/blob/main/docs/decisions.md) · 🔗 [**Repo**](https://github.com/kartikey3112/testmu-sdet1-kartikey)
+
+</details>
+
+<details open>
 <summary><b>📉 Noisefloor: flaky-test and slowdown analytics over CI history</b> · Python · DuckDB · dbt · Jenkins · Docker · GitHub Actions</summary>
 <br>
 
